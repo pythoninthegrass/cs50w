@@ -19,11 +19,13 @@ From the [course authors](https://cs50.harvard.edu/web/2020/):
     * [asdf](https://asdf-vm.com/guide/getting-started.html#_2-download-asdf)
     * [poetry](https://python-poetry.org/docs/)
     * [docker-compose](https://docs.docker.com/compose/install/)
+    * [k9s](https://github.com/derailed/k9s#installation)
     * [minikube](#kubernetes-k8s)
     * [helm](https://helm.sh/docs/intro/install/)
     * [devspace](https://devspace.sh/docs/getting-started/introduction)
 
 ## Usage
+* [k9s](markdown/kubernetes.md#k9s)
 * Minikube
     ```bash
     # install
