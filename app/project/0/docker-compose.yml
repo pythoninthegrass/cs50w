@@ -11,7 +11,7 @@ services:
     - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
   web:
     container_name: project-zero-cont
-    # image:
+    image: cs50w/project-zero
     # tty: false               # false for `entrypoint` in Dockerfile
     # stdin_open: false        # false for `entrypoint` in Dockerfile
     env_file:
