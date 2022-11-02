@@ -95,7 +95,8 @@ From the [course authors](https://cs50.harvard.edu/web/2020/):
     ![ellie](img/simplehttp.gif)
 
 ## TODO
-* Switch out DevSpace default image in `devspace.yaml`
+* ~~Switch out DevSpace default image in `devspace.yaml`~~
+* Refactor [advanced.html](app/project/0/advanced.html) to match [Google Advanced Search](https://www.google.com/advanced_search)
 
 ## Further Reading
 [CS50's Web Programming with Python and JavaScript | edX](https://www.edx.org/course/cs50s-web-programming-with-python-and-javascript)
