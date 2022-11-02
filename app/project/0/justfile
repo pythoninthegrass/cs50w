@@ -26,6 +26,10 @@ host := `uname -n`
 default:
     just --list
 
+# [devspace] build docker image
+build-devspace:
+    devspace build
+
 # [devspace] start minikube + devspace
 start-devspace:
     #!/usr/bin/env bash
@@ -41,6 +45,10 @@ start-devspace:
 # [devspace] stop minikube
 stop-devspace:
     minikube stop -p {{PROF}}
+
+# [devspace] delete deployed resources
+delete-devspace:
+    devspace purge
 
 # [docker] build locally or on intel box
 build:
@@ -66,7 +74,7 @@ pull:
     docker pull python:3.10-slim-buster
 
 # [docker] start docker-compose container
-up:
+start:
     docker-compose up -d
 
 # [docker] ssh into container
