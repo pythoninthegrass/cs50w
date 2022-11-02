@@ -82,8 +82,14 @@ From the [course authors](https://cs50.harvard.edu/web/2020/):
     # change namespace from default
     devspace use namespace cs50w
 
+    # list variables in devspace.yaml
+    devspace list vars
+
     # run pod
     devspace dev
+
+    # delete deployed resources
+    devspace purge
     ```
     ![devspace](img/devspace.png)
     ![ellie](img/simplehttp.gif)
@@ -93,3 +99,5 @@ From the [course authors](https://cs50.harvard.edu/web/2020/):
 
 ## Further Reading
 [CS50's Web Programming with Python and JavaScript | edX](https://www.edx.org/course/cs50s-web-programming-with-python-and-javascript)
+
+[Config Reference | DevSpace | Documentation](https://www.devspace.sh/docs/configuration/reference)
