@@ -1,16 +1,13 @@
 #!/usr/bin/env python3
 
 # fmt: off
-import os
+from decouple import config
 from pathlib import Path
 from sanic import Sanic
 # fmt: on
 
-# env vars
-if os.getenv("APP_SERVICE_PORT") is not None:
-    PORT = int(os.getenv("APP_SERVICE_PORT"))
-else:
-    PORT = 8000
+# env vars (hierachy: args, env, .env)
+PORT = config("APP_SERVICE_PORT", default='8000', cast=int)
 
 # init app
 app = Sanic(__name__)
