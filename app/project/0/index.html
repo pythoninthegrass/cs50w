@@ -2,18 +2,26 @@
 <html lang="en">
 <link rel="stylesheet" href="styles.css">
   <head>
-      <title>Search</title>
-      <div class="flex-end">
-        <a id="image" href="image.html">Image</a>
-      </div>
+    <title>Index</title>
+    <div>
+      <a href="index.html">
+        <img id="logo" src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google" >
+      </a>
       <div class="flex-end">
         <a id="advanced" href="advanced.html">Advanced</a>
       </div>
+      <div class="flex-end">
+        <a id="image" href="image.html">Image</a>
+      </div>
+    </div>
   </head>
   <body>
-    <form action="https://www.google.com/search">
-      <input type="text" name="q">
-      <input type="submit" value="Google Search">
+    <!-- <canvas id="hpcanvas" width="960" height="270"></canvas> -->
+    <form action="https://www.google.com/search" target="_blank" >
+      <div class="std-form">
+        <input type="text" name="q">
+        <input id="submit" type="submit" value="Google Search" >
+      </div>
     </form>
   </body>
 </html>

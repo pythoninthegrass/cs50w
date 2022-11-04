@@ -1,25 +1,95 @@
+/* selector: div */
 div {
-  /* width: 200px; */
-  margin-left: 1rem;
-  border: 0px 0;
+  margin: 1%;
+  border: 0 0;
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* selector: label */
 label {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   font-size: 1rem;
-  padding-right: 2px;
+  padding: 10px 0 5px 0;
 }
 
+/* label class: appbar */
+label.appbar {
+  color: #d93025;
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: auto;
+}
+
+/* selector: select */
 select {
   font-size: .9rem;
   padding: 2px 5px;
 }
 
-.flex-end {
-  padding: 0px 0 0 0;
+/* element id: logo */
+#logo {
+  display: inline-block;
+  width: 100px;
+  height: 30px;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+}
+
+/* element id: submit */
+#submit {
+  background-color: #f8f9fa;
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+  font-size: 14px;
+  margin: 11px 4px;
+  padding: 0 16px;
+  line-height: 27px;
+  height: 36px;
+  min-width: 54px;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* element class: btn */
+.btn {
+  font-size: .9rem;
+  padding: 10px 0 5px 0;
+}
+
+/* element class: flex-start */
+.flex-start {
   display: flex;
+  padding: 5px 1em 0 2em;
+  margin: 0 0 1rem 0;
+  justify-content: flex-start;
+  float: left;
+}
+
+/* element class: flex-end */
+.flex-end {
+  display: flex;
+  padding: 0 1em 0 0;
+  margin: 0 0 0 0;
   justify-content: flex-end;
   float: right;
+}
+
+/* element class: std-form */
+.std-form {
+  /* display: flex; */
+  margin: 0 0 1rem 0;
+  /* justify-content: flex-end;
+  float: left; */
+}
+
+/* element class: adv-form */
+.adv-form {
+  /*   display: flex; */
+  /*   flex-direction: row; */
+  /*   justify-content: center; */
+  display: inline-flex;
+  flex-direction: column;
+  /*   padding: 0 1em 0 0; */
+  /*   margin: 0 0 0 0; */
 }
