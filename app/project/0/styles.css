@@ -1,23 +1,18 @@
 /* selector: div */
 div {
-  margin: 1%;
-  border: 0 0;
   font-family: Arial, Helvetica, sans-serif;
 }
 
 /* selector: label */
 label {
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bold;
   font-size: 1rem;
-  padding: 10px 0 5px 0;
 }
 
+/* TODO: add space b/w "Advanced Search" && "Find pages with..." */
 /* label class: appbar */
 label.appbar {
   color: #d93025;
   font-size: 20px;
-  font-weight: bold;
   margin-left: auto;
 }
 
@@ -25,45 +20,6 @@ label.appbar {
 select {
   font-size: .9rem;
   padding: 2px 5px;
-}
-
-/* element id: logo */
-#logo {
-  display: inline-block;
-  width: 100px;
-  height: 30px;
-  margin: 0 0 0 0;
-  padding: 0 0 0 0;
-}
-
-/* element id: submit */
-#submit {
-  background-color: #f8f9fa;
-  border: 1px solid #dadce0;
-  border-radius: 4px;
-  font-size: 14px;
-  margin: 11px 4px;
-  padding: 0 16px;
-  line-height: 27px;
-  height: 36px;
-  min-width: 54px;
-  text-align: center;
-  cursor: pointer;
-}
-
-/* element class: btn */
-.btn {
-  font-size: .9rem;
-  padding: 10px 0 5px 0;
-}
-
-/* element class: flex-start */
-.flex-start {
-  display: flex;
-  padding: 5px 1em 0 2em;
-  margin: 0 0 1rem 0;
-  justify-content: flex-start;
-  float: left;
 }
 
 /* element class: flex-end */
@@ -75,21 +31,99 @@ select {
   float: right;
 }
 
-/* element class: std-form */
-.std-form {
-  /* display: flex; */
-  margin: 0 0 1rem 0;
-  /* justify-content: flex-end;
-  float: left; */
+/* element class: center div */
+.wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
+/* element id: logo-index */
+#logo-index {
+  display: flex;
+  margin: 0 auto;
+  padding: 1%;
+  max-height: 100%;
+  max-width: 82%;
+  object-fit: contain;
+  object-position: center bottom;
+  width: auto;
+}
+
+/* element id: logo */
+#logo {
+  display: inline-block;
+  width: 74px;
+  height: 24px;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+}
+
+/* element class: round-search */
+.round-search {
+  display: flex;
+  height: 44px;
+  background: #fff;
+  border: 1px solid #dfe1e5;
+  box-shadow: none;
+  border-radius: 24px;
+  margin: 0 auto;
+  width: 35rem;
+  padding-left: 1rem;
+}
+
+/* element class: form - aligns btn */
+.form {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0em 0.5em;
+  width: 55%;
+  margin: 0 auto;
+}
+
+/* TODO: add grid/div to move text to left of input fields */
 /* element class: adv-form */
 .adv-form {
-  /*   display: flex; */
-  /*   flex-direction: row; */
-  /*   justify-content: center; */
   display: inline-flex;
   flex-direction: column;
-  /*   padding: 0 1em 0 0; */
-  /*   margin: 0 0 0 0; */
+  padding: 10px 0 5px 0;
+}
+
+/* element id: submit */
+#submit {
+  background-color: #f8f9fa;
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+  font-size: 14px;
+  margin: 11px 4px;
+  padding: 0 16px;
+  height: 36px;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* element class: form - aligns btn */
+.form-img {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr;
+  grid-gap: 0.5em;
+  margin: 0 auto;
+  max-width: 8rem;
+}
+
+/* element class: btn */
+.btn {
+  font-size: 1rem;
+  padding: 1px 0 5px 0;
+}
+
+.blue-btn {
+  z-index: 100;
+  font-size: 1rem;
+  padding: 10px 0 5px 0;
+  color: #fff;
+  background-color: #0060df !important;
 }

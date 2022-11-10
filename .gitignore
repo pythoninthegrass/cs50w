@@ -10,6 +10,8 @@ redis*
 raw/
 gitleaks_report*.json
 _pginfo/
+_pgbackup/
+pinegrow.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

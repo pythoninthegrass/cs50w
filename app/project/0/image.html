@@ -1,24 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" href="styles.css">
-  <head>
-    <title>Image</title>
-    <!-- <div class="flex-end">
-      <a id="index" href="index.html">Google Search</a>
-    </div> -->
-    <div>
-      <a href="index.html">
-        <img id="logo" src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google" >
-      </a>
-      <div class="flex-end">
-        <a id="advanced" href="advanced.html">Advanced</a>
-      </div>
+<head>
+  <link rel="stylesheet" href="styles.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image</title>
+</head>
+<body>
+  <div>
+    <div class="flex-end">
+      <a id="advanced" href="advanced.html">Advanced</a>
     </div>
-  </head>
-  <body>
-    <form action="https://www.google.com/images" target="_blank" >
-      <input type="text" name="q">
-      <input id="submit" type="submit" value="Image Search" >
-    </form>
-  </body>
+    <div class="flex-end">
+      <a id="index" href="index.html">Home</a>
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="content">
+      <canvas id="hpcanvas" width="auto" height="225"></canvas>
+      <div>
+        <a href="index.html">
+          <img id="logo-index" src="https://purepng.com/public/uploads/large/purepng.com-google-logo-2015brandlogobrand-logoiconssymbolslogosgoogle-6815229372333mqrr.png" width="272" height="92" alt="Google"/>
+        </a>
+      </div>
+      <form action="https://www.google.com/search" target="_blank">
+        <div>
+          <input class="round-search" type="text" name="q"/>
+        </div>
+        <div class="form-img">
+          <input id="submit" type="submit" value="Image Search"/>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
 </html>

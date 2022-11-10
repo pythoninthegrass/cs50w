@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" href="styles.css">
   <head>
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Advanced</title>
+  </head>
+  <body>
     <div>
       <a href="index.html">
         <img id="logo" src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google" >
@@ -10,26 +13,32 @@
       <div class="flex-end">
         <a id="image" href="image.html">Image</a>
       </div>
+      <div class="flex-end">
+        <a id="index" href="index.html">Google Search</a>
+      </div>
     </div>
     <div>
       <label class="appbar">Advanced Search</label>
     </div>
-  </head>
-  <body>
     <form action="https://www.google.com/search" target="_blank" >
-      <div class="adv-form">
-        <label for="all">all these words:</label>
-        <input class="adv-txt" id="all" type="text" name="as_q" />
-        <label for="exact">this exact word or phrase:</label>
-        <input class="adv-txt" id="exact" type="text" name="as_epq" />
-        <label for="any">any of these words:</label>
-        <input class="adv-txt" id="any" type="text" name="as_oq" />
-        <label for="none">none of these words:</label>
-        <input class="adv-txt" id="none" type="text" name="as_eq" />
-        <div class="btn">
-          <input id="submit" type="submit" value="Advanced Search" />
-          <!-- onsubmit input wrap in double quotes -->
-          <!-- <input type="text" name="q" onsubmit="this.value = this.value.replace(/ /g, '+');"> -->
+      <div>
+        <label for="find">Find pages with...</label>
+        <div>
+          <div class="adv-form">
+            <label for="all">all these words:</label>
+            <input class="adv-txt" id="all" type="text" name="as_q" />
+            <label for="exact">this exact word or phrase:</label>
+            <input class="adv-txt" id="exact" type="text" name="as_epq" />
+            <label for="any">any of these words:</label>
+            <input class="adv-txt" id="any" type="text" name="as_oq" />
+            <label for="none">none of these words:</label>
+            <input class="adv-txt" id="none" type="text" name="as_eq" />
+            <div class="btn">
+              <input id="submit" class="blue-btn" type="submit" value="Advanced Search" />
+              <!-- onsubmit input wrap in double quotes -->
+              <!-- <input type="text" name="q" onsubmit="this.value = this.value.replace(/ /g, '+');"> -->
+            </div>
+          </div>
         </div>
       </div>
     </form>
