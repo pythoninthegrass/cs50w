@@ -10,6 +10,7 @@ From the [course authors](https://cs50.harvard.edu/web/2020/):
   * [Summary](#summary)
   * [Setup](#setup)
   * [Usage](#usage)
+  * [Submissions](#submissions)
   * [TODO](#todo)
   * [Further Reading](#further-reading)
 
@@ -94,9 +95,32 @@ From the [course authors](https://cs50.harvard.edu/web/2020/):
     ![devspace](img/devspace.png)
     ![ellie](img/simplehttp.gif)
 
+## Submissions
+* See [CS50W Projects](https://cs50.harvard.edu/web/2020/projects/) for details
+    ```bash
+    # create branch from spec (e.g., project 0: search)
+    git checkout -b web50/projects/2020/x/search
+
+    # add remote origin
+    git remote add origin https://github.com/me50/USERNAME.git
+
+    # move all relevant files to tld
+    mv index.html image.html advanced.html styles.css ../../..
+
+    # commit files
+    git commit .
+
+    # commit files and skip pre-commit
+    git commit -m "search mvp" -m "Other than .dotfiles, just the project 0 website content" --no-verify
+
+    # push to me50 repo
+    git push -u origin https://github.com/me50/USERNAME.git
+    ```
+
 ## TODO
 * ~~Switch out DevSpace default image in `devspace.yaml`~~
-* Refactor [advanced.html](app/project/0/advanced.html) to match [Google Advanced Search](https://www.google.com/advanced_search)
+* ~~Refactor [advanced.html](app/project/0/advanced.html) to match [Google Advanced Search](https://www.google.com/advanced_search)~~
+* Go over [sanic](https://sanic.dev/en/) as ad hoc stand-in for stdlib http server
 
 ## Further Reading
 [CS50's Web Programming with Python and JavaScript | edX](https://www.edx.org/course/cs50s-web-programming-with-python-and-javascript)
