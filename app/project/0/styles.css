@@ -8,7 +8,6 @@ label {
   font-size: 1rem;
 }
 
-/* TODO: add space b/w "Advanced Search" && "Find pages with..." */
 /* label class: appbar */
 label.appbar {
   color: #d93025;
@@ -83,12 +82,46 @@ select {
   margin: 0 auto;
 }
 
-/* TODO: add grid/div to move text to left of input fields */
 /* element class: adv-form */
 .adv-form {
-  display: inline-flex;
-  flex-direction: column;
-  padding: 10px 0 5px 0;
+  display: inline-grid;
+  padding: 10px 10px 1px 20px;
+  margin: 0 0 0 0;
+  width: 50%;
+  grid-gap: 10px;
+}
+
+/* TODO: golf ids into a class selector (not working for `adv-txt`) */
+/* element id: all */
+#all {
+  display: inline-grid;
+  position: absolute;
+  left: 14.5rem;
+  width: 14rem;
+}
+
+/* element id: exact */
+#exact {
+  display: inline-grid;
+  position: absolute;
+  left: 14.5rem;
+  width: 14rem;
+}
+
+/* element id: any */
+#any {
+  display: inline-grid;
+  position: absolute;
+  left: 14.5rem;
+  width: 14rem;
+}
+
+/* element id: none */
+#none {
+  display: inline-grid;
+  position: absolute;
+  left: 14.5rem;
+  width: 14rem;
 }
 
 /* element id: submit */
@@ -118,6 +151,7 @@ select {
 .btn {
   font-size: 1rem;
   padding: 1px 0 5px 0;
+  cursor: pointer;
 }
 
 .blue-btn {
@@ -126,4 +160,5 @@ select {
   padding: 10px 0 5px 0;
   color: #fff;
   background-color: #0060df !important;
+  cursor: pointer;
 }
