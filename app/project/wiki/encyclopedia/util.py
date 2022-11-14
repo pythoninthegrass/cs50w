@@ -6,8 +6,6 @@ from django.core.files.base import ContentFile
 from django.core.files.storage import default_storage
 from icecream import ic
 
-# from pathlib import Path
-
 # verbose icecream
 ic.configureOutput(includeContext=True)
 
@@ -18,13 +16,7 @@ def list_entries():
     """
 
     _, filenames = default_storage.listdir("entries")
-    return list(
-        sorted(
-            re.sub(r"\.md$", "", filename)
-            for filename in filenames
-            if filename.endswith(".md")
-        )
-    )
+    return list(sorted(re.sub(r"\.md$", "", filename) for filename in filenames if filename.endswith(".md")))
 
 
 def save_entry(title, content):
