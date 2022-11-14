@@ -12,6 +12,6 @@ For more information on this file, see
 https://docs.djangoproject.com/en/3.0/howto/deployment/wsgi/
 """
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'wiki.settings')
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "wiki.settings")
 
 application = get_wsgi_application()
