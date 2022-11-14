@@ -2,8 +2,8 @@
 
 from django.contrib import admin
 from django.urls import include, path
-from my_app import views
-from other_app.views import Home
+from encyclopedia import views
+# from other_app.views import Home
 
 """wiki URL Configuration
 
@@ -24,7 +24,7 @@ Including another URLconf
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("encyclopedia.urls")),
-    path('', views.home, name='home'),
-    path('', Home.as_view(), name='home'),
-    path('blog/', include('blog.urls')),
+    # path('', views.home, name='home'),
+    # path('', Home.as_view(), name='home'),
+    # path('blog/', include('blog.urls')),
 ]
