@@ -5,11 +5,7 @@ from django.shortcuts import render
 
 
 def index(request):
-    return render(
-        request,
-        "encyclopedia/index.html",
-        {"entries": util.list_entries()}
-    )
+    return render(request, "encyclopedia/index.html", {"entries": util.list_entries()})
 
 
 def entry(request, title):
@@ -18,3 +14,7 @@ def entry(request, title):
         "encyclopedia/entry.html",
         {"title": title, "content": util.get_entry(title)},
     )
+
+
+def error404(request, exception):
+    return render(request, "encyclopedia/404.html", status=404)

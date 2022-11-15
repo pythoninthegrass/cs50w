@@ -4,6 +4,7 @@ import markdown2
 import re
 from django.core.files.base import ContentFile
 from django.core.files.storage import default_storage
+from django.http import HttpResponse, Http404
 from icecream import ic
 
 # verbose icecream
@@ -46,10 +47,9 @@ def get_entry(title):
 
     filepath = f"app/project/wiki/entries/{title}.md"
 
-    # TODO: raise 404 page
     try:
         f = default_storage.open(filepath)
         content = markdown2.markdown(f.read().decode("utf-8"))
         return content
     except FileNotFoundError:
-        return None
+        raise Http404("Page not found.")
