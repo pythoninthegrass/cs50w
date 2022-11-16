@@ -5,10 +5,13 @@ from django.shortcuts import render
 
 
 def index(request):
+    entries, urls = util.list_entries()
+
     return render(
         request,
         "encyclopedia/index.html",
-        {"entries": util.list_entries()}
+        {"entries": entries,
+        "urls": urls}
     )
 
 

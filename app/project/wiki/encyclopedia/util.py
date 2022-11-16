@@ -11,16 +11,28 @@ from pathlib import Path
 # verbose icecream
 ic.configureOutput(includeContext=True)
 
+filepath = Path(f"{default_storage.location}/app/project/wiki/entries")
+
 
 def list_entries():
     """
     Returns a list of all names of encyclopedia entries.
     """
 
-    entries = Path(f"{default_storage.location}/app/project/wiki/entries")
+    _, filenames = default_storage.listdir(filepath)
+    files = list(sorted(re.sub(r"\.md$", "", filename) for filename in filenames if filename.endswith(".md")))
 
-    _, filenames = default_storage.listdir(entries)
-    return list(sorted(re.sub(r"\.md$", "", filename) for filename in filenames if filename.endswith(".md")))
+    # basename of files
+    urls = [Path(filename).stem for filename in files]
+
+    # lower case urls
+    urls = [url.lower() for url in urls]
+
+    # TODO: add endpoint 'wiki' to index redirect vs. hardcode
+    # convert urls to hyperlinks
+    urls = [f"<a href='/wiki/{url}'>{url}</a>" for url in urls]
+
+    return files, urls
 
 
 def save_entry(title, content):
@@ -48,10 +60,10 @@ def get_entry(title):
     else:
         title = title.capitalize()
 
-    filepath = f"app/project/wiki/entries/{title}.md"
+    filename = f"{filepath}/{title}.md"
 
     try:
-        f = default_storage.open(filepath)
+        f = default_storage.open(filename)
         content = markdown2.markdown(f.read().decode("utf-8"))
         return content
     except FileNotFoundError:
