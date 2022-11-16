@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 
-import os
-
-# from pathlib import Path
+# import os
+from pathlib import Path
 
 """
 Django settings for wiki project.
@@ -17,9 +16,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-# BASE_DIR = str(Path(__file__).resolve().parent.parent)
-# BASE_DIR = str(Path(__file__).resolve().parent)
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -31,6 +28,8 @@ SECRET_KEY = "%710m*zic)#0u((qugw#1@e^ty!c)9j04956v@ly(_86n$rg)h"
 DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
+
+APPEND_SLASH = False
 
 
 # Application definition
@@ -82,7 +81,7 @@ WSGI_APPLICATION = "wiki.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+        "NAME": Path(BASE_DIR / "db.sqlite3"),
     }
 }
 

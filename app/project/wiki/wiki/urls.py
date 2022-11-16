@@ -4,8 +4,6 @@ from django.contrib import admin
 from django.urls import include, path
 from encyclopedia import views
 
-# from other_app.views import Home
-
 """wiki URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -25,7 +23,6 @@ Including another URLconf
 urlpatterns = [
     path("", include("encyclopedia.urls")),
     path("admin/", admin.site.urls),
-    path("encyclopedia/", include("encyclopedia.urls")),
 ]
 
 # handle 404 errors
