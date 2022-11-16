@@ -12,6 +12,7 @@ repos:
     - id: black
     exclude: |
         (?x)^(
+            app/project/wiki/encyclopedia/util.py|
             app/project/wiki/encyclopedia/views.py
         )$
   - repo: https://gitlab.com/pycqa/flake8
