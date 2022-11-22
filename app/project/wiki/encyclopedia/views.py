@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 
 from . import util
+from django.core.files.storage import default_storage
 from django.shortcuts import render
+from pathlib import Path
+
+filepath = Path(f"{default_storage.location}/app/project/wiki/encyclopedia/templates")
 
 
 def index(request):
@@ -9,7 +13,7 @@ def index(request):
 
     return render(
         request,
-        "encyclopedia/index.html",
+        f"{filepath}/index.html",
         {"entries": entries,
         "urls": urls}
     )
@@ -18,10 +22,10 @@ def index(request):
 def entry(request, title):
     return render(
         request,
-        "encyclopedia/entry.html",
+        f"{filepath}/entry.html",
         {"title": title, "content": util.get_entry(title)},
     )
 
 
 def error404(request, exception):
-    return render(request, "encyclopedia/404.html", status=404)
+    return render(request, f"{filepath}/404.html", status=404)
