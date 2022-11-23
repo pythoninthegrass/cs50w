@@ -14,8 +14,7 @@ def index(request):
     return render(
         request,
         f"{filepath}/index.html",
-        {"entries": entries,
-        "urls": urls}
+        {"entries": entries, "urls": urls}
     )
 
 
@@ -28,4 +27,23 @@ def entry(request, title):
 
 
 def error404(request, exception):
-    return render(request, f"{filepath}/404.html", status=404)
+    return render(
+        request,
+        f"{filepath}/404.html",
+        status=404
+    )
+
+
+def get_entries(request):
+    query = request.GET["q"]
+
+    try:
+        entries, urls = util.search_entries(query)
+        return entry(request, query)
+    except:
+        entries, urls = util.list_entries()
+        return render(
+            request,
+            f"{filepath}/search.html",
+            {"query": query, "entries": entries, "urls": urls}
+        )

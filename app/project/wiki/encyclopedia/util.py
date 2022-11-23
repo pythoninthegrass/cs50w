@@ -4,7 +4,7 @@ import markdown2
 import re
 from django.core.files.base import ContentFile
 from django.core.files.storage import default_storage
-from django.http import HttpResponse, Http404
+from django.http import Http404, HttpResponse
 from icecream import ic
 from pathlib import Path
 
@@ -54,6 +54,7 @@ def get_entry(title):
     entry exists, the function returns None.
     """
 
+    # TODO: break out into function (e.g., `validate_entry()`)
     acro_list = ["html", "css"]
     if title in acro_list:
         title = title.upper()
@@ -68,3 +69,28 @@ def get_entry(title):
         return content
     except FileNotFoundError:
         raise Http404("Page not found.")
+
+
+def search_entries(query):
+    """
+    Searches for an encyclopedia entry by its title. If no such
+    entry exists, the function returns None.
+    """
+
+    acro_list = ["html", "css"]
+    if query in acro_list:
+        query = query.upper()
+    else:
+        query = query.capitalize()
+
+    # get list of entries
+    entries, url = list_entries()
+
+    # convert entries to hyperlinks
+    urls = [f"<a href='/wiki/{entry}'>{entry}</a>" for entry in entries]
+
+    if query in entries:
+        url = [url for url in urls if query in url]
+        return query, url
+    else:
+        return None
