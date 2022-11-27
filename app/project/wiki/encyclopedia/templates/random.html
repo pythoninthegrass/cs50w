@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% comment %}
+* NOTE:
+This is unused, but needed by `urls.py` to avoid 404/500 errors.
+Doesn't render anything from `views.py` -- uses `entry` function instead.
+{% endcomment %}
+
+{% block title %}
+  {{ title }}
+{% endblock %}
+
+{% block body %}
+  {{ content|safe }}
+{% endblock %}

@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import random
 from . import util
 from django.core.files.storage import default_storage
 from django.shortcuts import render
@@ -26,14 +27,17 @@ def entry(request, title):
     )
 
 
-def error404(request, exception):
-    return render(
-        request,
-        f"{filepath}/404.html",
-        status=404
-    )
+# TODO: store last entry to avoid duplicate rolls until cycle completes
+def random_entry(request):
+    entries, urls = util.list_entries()
+
+    rng = random.randint(0, len(entries) - 1)
+    title = entries[rng]
+
+    return entry(request, title)
 
 
+# TODO: handle bare except
 def get_entries(request):
     query = request.GET["q"]
 
@@ -47,3 +51,10 @@ def get_entries(request):
             f"{filepath}/search.html",
             {"query": query, "entries": entries, "urls": urls}
         )
+
+def error404(request, exception):
+    return render(
+        request,
+        f"{filepath}/404.html",
+        status=404
+    )
