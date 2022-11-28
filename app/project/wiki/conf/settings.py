@@ -20,8 +20,9 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # /Users/lance/git/cs50w/app/project/wiki/encyclopedia/static/styles.css
-STAT_PATH = Path(f"{default_storage.location}/app/project/wiki/encyclopedia/static")
-TEMP_PATH = Path(f"{default_storage.location}/app/project/wiki/encyclopedia/templates")
+MDX_PATH =  Path(f"{default_storage.location}/encyclopedia/markdownx").as_posix()
+STAT_PATH = Path(f"{default_storage.location}/encyclopedia/static").as_posix()
+TEMP_PATH = Path(f"{default_storage.location}/encyclopedia/templates").as_posix()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -39,6 +40,7 @@ APPEND_SLASH = False
 
 INSTALLED_APPS = [
     "encyclopedia",
+    "markdownx",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -127,4 +129,13 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 
-STATICFILES_DIRS = [STAT_PATH]
+STATICFILES_DIRS = [MDX_PATH, STAT_PATH]
+
+MEDIA_URL = "/media/"
+
+MEDIA_ROOT = Path(BASE_DIR / "media")
+
+MARKDOWNX_IMAGE_MAX_SIZE = {
+    'size': (1000, 1000),
+    'quality': 100
+}
