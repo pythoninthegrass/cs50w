@@ -4,26 +4,23 @@
   Create New Page
 {% endblock %}
 
+{% comment %} <head>
+  {% load static %}
+  <link href="{% static 'tinymce/css/prism.css' %}" rel="stylesheet">
+</head>
+
+<body>
+  {% for txt in text %}
+    <p>{{txt.content|safe}}</p>
+  {% endfor %}
+</body>
+
+<script src="{% static 'tinymce/js/prism.js' %}"></script> {% endcomment %}
+
+{% block title %}
+  {{ title }}
+{% endblock %}
+
 {% block body %}
-  {% comment %} <h1>Create New Page</h1>
-  <form method="POST" action="">{% csrf_token %}
-    {{ form }}
-  </form>
-  {{ form.media }} {% endcomment %}
-  <div class="container">
-    <h1>{{ markeddownexample.title }}</h1>
-    <p>{{ markeddownexample.formatted_markdown|safe }}</p>
-  </div>
-  <style>
-    pre {
-       background: #2e2f2f;
-       border-radius: 5px;
-       padding: 10px;
-       }
-    img{
-        width: 1000px;
-        padding: 10px;
-       }
-  </style>
-  <a href="/">Back</a>
+  {{ content|safe }}
 {% endblock %}

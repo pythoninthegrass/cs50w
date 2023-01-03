@@ -20,7 +20,6 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # /Users/lance/git/cs50w/app/project/wiki/encyclopedia/static/styles.css
-MDX_PATH =  Path(f"{default_storage.location}/encyclopedia/markdownx").as_posix()
 STAT_PATH = Path(f"{default_storage.location}/encyclopedia/static").as_posix()
 TEMP_PATH = Path(f"{default_storage.location}/encyclopedia/templates").as_posix()
 
@@ -30,7 +29,7 @@ TEMP_PATH = Path(f"{default_storage.location}/encyclopedia/templates").as_posix(
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "%710m*zic)#0u((qugw#1@e^ty!c)9j04956v@ly(_86n$rg)h"
 
-# TODO: `DEBUG = False`; `ALLOWED_HOSTS = ['*']` for production
+# TODO: `DEBUG = False`; `ALLOWED_HOSTS = ["*"]` for production
 DEBUG = True
 ALLOWED_HOSTS = []
 APPEND_SLASH = False
@@ -40,12 +39,12 @@ APPEND_SLASH = False
 
 INSTALLED_APPS = [
     "encyclopedia",
-    "markdownx",
+    "django_summernote",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
-    "django.contrib.sessions",
     "django.contrib.messages",
+    "django.contrib.sessions",
     "django.contrib.staticfiles",
 ]
 
@@ -127,15 +126,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
+STATIC_ROOT = Path(BASE_DIR / "static")
+
 STATIC_URL = "/static/"
 
-STATICFILES_DIRS = [MDX_PATH, STAT_PATH]
+STATICFILES_DIRS = [STAT_PATH]
 
 MEDIA_URL = "/media/"
 
 MEDIA_ROOT = Path(BASE_DIR / "media")
 
-MARKDOWNX_IMAGE_MAX_SIZE = {
-    'size': (1000, 1000),
-    'quality': 100
-}
+SUMMERNOTE_THEME = 'bs4'    # Use Bootstrap4 theme
+
+# X_FRAME_OPTIONS = 'SAMEORIGIN'

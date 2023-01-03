@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 
 from django import forms
-from .models import MarkedDownExample
+from django_summernote.widgets import SummernoteWidget
 
 
-class MarkedDownExampleForm(forms.ModelForm):
+class PostForm(forms.ModelForm):
+    content = forms.CharField(widget=SummernoteWidget())
+
     class Meta:
-        model = MarkedDownExample
-        fields = '__all__'
+        model = Post
+        fields = ('title', 'content')

@@ -2,12 +2,20 @@
 
 import random
 from . import util
-from .models import MarkedDownExample
-from .forms import MarkedDownExampleForm
+from .models import Post
 from django.core.files.storage import default_storage
+from django.contrib import admin
 from django.shortcuts import render
 from django.views.generic import DetailView
 from pathlib import Path
+from django_summernote.admin import SummernoteModelAdmin
+
+
+class PostAdmin(SummernoteModelAdmin):
+    summernote_fields = '__all__'
+
+
+admin.site.register(Post, PostAdmin)
 
 filepath = Path(f"{default_storage.location}/app/project/wiki/encyclopedia/templates")
 
@@ -22,31 +30,15 @@ def index(request):
     )
 
 
+def create(request):
+    ...
+
+
 def entry(request, title):
     return render(
         request,
         f"{filepath}/entry.html",
         {"title": title, "content": util.get_entry(title)},
-    )
-
-
-class MarkdownDetailView(DetailView):
-    model = MarkedDownExample
-
-
-def create(request):
-    if request.method == "POST":
-        form = MarkedDownExampleForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return entry(request, form.cleaned_data["title"])
-    else:
-        form = MarkedDownExampleForm()
-
-    return render(
-        request,
-        f"{filepath}/create.html",
-        {"form": form}
     )
 
 

@@ -4,7 +4,9 @@ import markdown2
 import re
 from django.core.files.base import ContentFile
 from django.core.files.storage import default_storage
+from django.db import models
 from django.http import Http404, HttpResponse
+from tinymce.models import HTMLField
 from icecream import ic
 from pathlib import Path
 
@@ -12,6 +14,10 @@ from pathlib import Path
 ic.configureOutput(includeContext=True)
 
 filepath = Path(f"{default_storage.location}/app/project/wiki/encyclopedia/entries")
+
+
+class Entry(models.Model):
+    content = HTMLField()
 
 
 def list_entries():

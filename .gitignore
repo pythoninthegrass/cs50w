@@ -1,6 +1,7 @@
 # ETC
 django/composeexample/
 django/data/
+django/migrations/
 django/manage.py
 *.sqlite
 redis*

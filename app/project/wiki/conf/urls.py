@@ -25,14 +25,7 @@ Including another URLconf
 urlpatterns = [
     path("", include("encyclopedia.urls")),
     path("admin/", admin.site.urls),
-    path("markdownx/", include("markdownx.urls")),
 ]
-
-if settings.DEBUG:
-    urlpatterns += static(
-        settings.MEDIA_URL,
-        document_root=settings.MEDIA_ROOT
-    )
 
 # handle 404 errors
 handler404 = views.error404
