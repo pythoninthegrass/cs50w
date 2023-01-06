@@ -15,7 +15,7 @@ django-markdownx = "^3.0.1"
 
 [tool.poetry.dev-dependencies]
 icecream = "^2.1.3"
-ipython = "^8.4.0"
+ipython = "^8.7.0"
 rich = "^12.5.1"
 
 [tool.black]
