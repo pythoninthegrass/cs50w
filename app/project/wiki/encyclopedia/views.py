@@ -1,10 +1,9 @@
-#!/usr/bin/env python3
-
 import random
 from . import util
 from .forms import PostForm
 from django.core.files.storage import default_storage
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse
 from pathlib import Path
 
 filepath = Path(f"{default_storage.location}/app/project/wiki/encyclopedia/templates")
@@ -52,6 +51,30 @@ def get_entries(request):
             f"{filepath}/search.html",
             {"query": query, "entries": entries, "urls": urls}
         )
+
+
+def create(request):
+    if request.method == "POST":
+        form = PostForm(request.POST)
+        if form.is_valid():
+            util.save_entry(
+                form.cleaned_data["title"], form.cleaned_data["body"]
+            )
+            return redirect(
+                reverse(
+                    "entry",
+                    args=(form.cleaned_data["title"],)
+                )
+            )
+    else:
+        form = PostForm()
+
+    return render(
+        request,
+        f"{filepath}/create.html",
+        {"form": form}
+    )
+
 
 def error404(request, exception):
     return render(

@@ -1,9 +1,8 @@
-#!/usr/bin/env python3
-
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
-from django.conf.urls.static import static
-from django.conf import settings
+from markdownx import urls as markdownx
 from encyclopedia import views
 
 """wiki URL Configuration
@@ -25,6 +24,7 @@ Including another URLconf
 urlpatterns = [
     path("", include("encyclopedia.urls")),
     path("admin/", admin.site.urls),
+    path('markdownx/', include(markdownx)),
 ]
 
 if settings.DEBUG:

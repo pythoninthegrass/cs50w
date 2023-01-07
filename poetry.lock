@@ -93,7 +93,7 @@ bcrypt = ["bcrypt"]
 
 [[package]]
 name = "django-markdownx"
-version = "3.0.1"
+version = "4.0.0b1"
 description = "A comprehensive Markdown editor built for Django."
 category = "main"
 optional = false
@@ -453,7 +453,7 @@ python-versions = ">=3.7"
 [metadata]
 lock-version = "1.1"
 python-versions = "3.10.8"
-content-hash = "548418272716973fb5848e37801dcd3cf9227121bd3420f6cdb753f36154ae3b"
+content-hash = "ba9a2462a8012d8fa47fbeb05687fa747c35aa711e7b5d2241de4b0c34c353fc"
 
 [metadata.files]
 aiofiles = [
@@ -493,8 +493,8 @@ django = [
     {file = "Django-4.1.5.tar.gz", hash = "sha256:ff56ebd7ead0fd5dbe06fe157b0024a7aaea2e0593bb3785fb594cf94dad58ef"},
 ]
 django-markdownx = [
-    {file = "django-markdownx-3.0.1.tar.gz", hash = "sha256:e18e395cad0ade96afbb250a81cad15618e417ac3c0d9c37d964be3d8fd57bcf"},
-    {file = "django_markdownx-3.0.1-py2.py3-none-any.whl", hash = "sha256:f4d8998618c0548bf5349713d805e7440684d70116de0f10413932286c4e375f"},
+    {file = "django-markdownx-4.0.0b1.tar.gz", hash = "sha256:4f0ee12c38a9aeab9f8da0588ca169ec32c4dad84fc90dc4e9f56481b5de3473"},
+    {file = "django_markdownx-4.0.0b1-py2.py3-none-any.whl", hash = "sha256:e862ddc3e0aa8a2d6bb297fcf115a35b36b874ea5f07463577f1b34aa5073c3e"},
 ]
 executing = [
     {file = "executing-1.2.0-py2.py3-none-any.whl", hash = "sha256:0314a69e37426e3608aada02473b4161d4caf5a4b244d1d0c48072b8fee7bacc"},

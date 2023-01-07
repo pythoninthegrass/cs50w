@@ -5,14 +5,12 @@
 {% endblock %}
 
 {% block body %}
-  {% comment %} <h1>Create New Page</h1>
-  <form method="POST" action="">{% csrf_token %}
-    {{ form }}
-  </form>
-  {{ form.media }} {% endcomment %}
   <div class="container">
-    <h1>{{ markeddownexample.title }}</h1>
-    <p>{{ markeddownexample.formatted_markdown|safe }}</p>
+    <form method="POST" action="">{% csrf_token %}
+      {{ form.as_p|safe }}
+      {{ form.media }}
+    <input class="create" type="submit" name="create" placeholder="Submit">
+    </form>
   </div>
   <style>
     pre {

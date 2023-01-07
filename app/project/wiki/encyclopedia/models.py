@@ -1,10 +1,5 @@
-#!/usr/bin/env python3
-
 from django.db import models
-# from django import template
-# from datetime import datetime, timedelta
 from markdownx.models import MarkdownxField
-from django.contrib.auth.models import User
 
 
 class Post(models.Model):
