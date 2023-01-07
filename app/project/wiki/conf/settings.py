@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 import os
 from django.core.files.storage import default_storage
 from pathlib import Path
