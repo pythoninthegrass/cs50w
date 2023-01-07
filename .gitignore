@@ -2,6 +2,7 @@
 django/composeexample/
 django/data/
 django/manage.py
+migrations/
 *.sqlite
 redis*
 !redis.conf.example
