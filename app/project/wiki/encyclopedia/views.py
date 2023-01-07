@@ -2,6 +2,7 @@
 
 import random
 from . import util
+from .forms import PostForm
 from django.core.files.storage import default_storage
 from django.shortcuts import render
 from pathlib import Path

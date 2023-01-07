@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# import os
+import os
 from django.core.files.storage import default_storage
 from pathlib import Path
 
@@ -19,19 +19,16 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# /Users/lance/git/cs50w/app/project/wiki/encyclopedia/static/styles.css
-STAT_PATH = Path(f"{default_storage.location}/app/project/wiki/encyclopedia/static")
-TEMP_PATH = Path(f"{default_storage.location}/app/project/wiki/encyclopedia/templates")
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "%710m*zic)#0u((qugw#1@e^ty!c)9j04956v@ly(_86n$rg)h"
 
-# TODO: `DEBUG = False`; `ALLOWED_HOSTS = ['*']` for production
+# TODO: `DEBUG = False`
 DEBUG = True
 ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 APPEND_SLASH = False
 
 
@@ -39,6 +36,7 @@ APPEND_SLASH = False
 
 INSTALLED_APPS = [
     "encyclopedia",
+    "markdownx",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -125,6 +123,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_URL = "/static/"
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_TMP = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
-STATICFILES_DIRS = [STAT_PATH]
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+os.makedirs(STATIC_TMP, exist_ok=True)
+os.makedirs(STATIC_ROOT, exist_ok=True)
+os.makedirs(MEDIA_ROOT, exist_ok=True)

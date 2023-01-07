@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  Create New Page
+{% endblock %}
+
+{% block body %}
+  {% comment %} <h1>Create New Page</h1>
+  <form method="POST" action="">{% csrf_token %}
+    {{ form }}
+  </form>
+  {{ form.media }} {% endcomment %}
+  <div class="container">
+    <h1>{{ markeddownexample.title }}</h1>
+    <p>{{ markeddownexample.formatted_markdown|safe }}</p>
+  </div>
+  <style>
+    pre {
+       background: #2e2f2f;
+       border-radius: 5px;
+       padding: 10px;
+       }
+    img{
+        width: 1000px;
+        padding: 10px;
+       }
+  </style>
+  <a href="/">Back</a>
+{% endblock %}
