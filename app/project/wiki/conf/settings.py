@@ -17,6 +17,10 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# /Users/lance/git/cs50w/app/project/wiki/encyclopedia/static/styles.css
+STAT_PATH = Path(f"{default_storage.location}/app/project/wiki/encyclopedia/static")
+TEMP_PATH = Path(f"{default_storage.location}/app/project/wiki/encyclopedia/templates")
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 

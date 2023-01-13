@@ -45,7 +45,10 @@ def get_entries(request):
         entries, urls = util.search_entries(query)
         return entry(request, query)
     except:
+        # raw list of entries/urls
         entries, urls = util.list_entries()
+        # TODO: only return entries that match query (title or content)
+
         return render(
             request,
             f"{filepath}/search.html",
@@ -53,6 +56,7 @@ def get_entries(request):
         )
 
 
+# TODO: error page when title already exists
 def create(request):
     if request.method == "POST":
         form = PostForm(request.POST)
@@ -74,6 +78,9 @@ def create(request):
         f"{filepath}/create.html",
         {"form": form}
     )
+
+
+# TODO: edit existing page function
 
 
 def error404(request, exception):
