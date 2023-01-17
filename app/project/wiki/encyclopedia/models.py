@@ -2,7 +2,7 @@ from django.db import models
 from markdownx.models import MarkdownxField
 
 
-class Post(models.Model):
+class Markdown(models.Model):
     title = models.CharField(max_length=200)
     body = MarkdownxField()
 

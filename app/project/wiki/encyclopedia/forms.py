@@ -2,7 +2,7 @@ from django import forms
 from .models import *
 
 
-class PostForm(forms.ModelForm):
+class MarkdownForm(forms.ModelForm):
     class Meta:
-        model = Post
+        model = Markdown
         fields = '__all__'

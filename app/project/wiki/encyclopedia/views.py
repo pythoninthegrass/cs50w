@@ -1,6 +1,6 @@
 import random
 from . import util
-from .forms import PostForm
+from .forms import MarkdownForm
 from django.core.files.storage import default_storage
 from django.shortcuts import render, redirect
 from django.urls import reverse
@@ -59,7 +59,7 @@ def get_entries(request):
 # TODO: error page when title already exists
 def create(request):
     if request.method == "POST":
-        form = PostForm(request.POST)
+        form = MarkdownForm(request.POST)
         if form.is_valid():
             util.save_entry(
                 form.cleaned_data["title"], form.cleaned_data["body"]
@@ -71,7 +71,7 @@ def create(request):
                 )
             )
     else:
-        form = PostForm()
+        form = MarkdownForm(request.GET)
 
     return render(
         request,
@@ -80,7 +80,17 @@ def create(request):
     )
 
 
-# TODO: edit existing page function
+def edit(request, title):
+    # list entries, then render markdown editor with entry content
+    if request.method == "GET":
+        content = util.get_entry(title)
+        form = MarkdownForm(initial={"body": content})
+
+        return render(
+            request,
+            f"{filepath}/edit.html",
+            {"form": form, "title": title}
+        )
 
 
 def error404(request, exception):

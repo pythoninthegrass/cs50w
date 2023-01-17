@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  Edit Page
+{% endblock %}
+
+{% block body %}
+  <div class="container">
+    <form method="POST" enctype="multipart/form-data">{% csrf_token %}
+      {{ form.as_p|safe }}
+      {{ form.media }}
+    <input class="edit" type="submit" name="edit" placeholder="Submit">
+    </form>
+  </div>
+  <style>
+    pre {
+       background: #2e2f2f;
+       border-radius: 5px;
+       padding: 10px;
+       }
+    img{
+        width: 1000px;
+        padding: 10px;
+       }
+    .markdownx {
+      display: flex;
+    }
+    .markdownx-editor {
+      width: 50%;
+      padding: 10px;
+    }
+  </style>
+  <a href="/">Back</a>
+{% endblock %}
