@@ -4,6 +4,7 @@ from .forms import MarkdownForm
 from django.core.files.storage import default_storage
 from django.shortcuts import render, redirect
 from django.urls import reverse
+from markdownify import markdownify as md
 from pathlib import Path
 
 filepath = Path(f"{default_storage.location}/app/project/wiki/encyclopedia/templates")
@@ -61,6 +62,32 @@ def create(request):
     if request.method == "POST":
         form = MarkdownForm(request.POST)
         if form.is_valid():
+            title = form.cleaned_data["title"]
+            body = f"# {title}\n\n" + form.cleaned_data["body"]
+
+            util.save_entry(
+                title, body
+            )
+            return redirect(
+                reverse(
+                    "entry",
+                    args=(form.cleaned_data["title"],)
+                )
+            )
+    else:
+        form = MarkdownForm()
+
+    return render(
+        request,
+        f"{filepath}/create.html",
+        {"form": form}
+    )
+
+
+def edit(request, title):
+    if request.method == "POST":
+        form = MarkdownForm(request.POST)
+        if form.is_valid():
             util.save_entry(
                 form.cleaned_data["title"], form.cleaned_data["body"]
             )
@@ -71,26 +98,26 @@ def create(request):
                 )
             )
     else:
-        form = MarkdownForm(request.GET)
+        form = MarkdownForm()
+        form.fields["title"].initial = title
+        raw = form.fields["body"].initial = util.get_entry(title)
+        form.fields["body"].initial = md(raw)
 
     return render(
         request,
-        f"{filepath}/create.html",
+        f"{filepath}/edit.html",
         {"form": form}
     )
 
 
-def edit(request, title):
-    # list entries, then render markdown editor with entry content
-    if request.method == "GET":
-        content = util.get_entry(title)
-        form = MarkdownForm(initial={"body": content})
+def edit_list(request):
+    entries, urls = util.list_entries()
 
-        return render(
-            request,
-            f"{filepath}/edit.html",
-            {"form": form, "title": title}
-        )
+    return render(
+        request,
+        f"{filepath}/edit_list.html",
+        {"entries": entries}
+    )
 
 
 def error404(request, exception):
