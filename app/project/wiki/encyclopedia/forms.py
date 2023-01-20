@@ -1,10 +1,16 @@
-#!/usr/bin/env python3
-
+from .models import *
+from . import util
 from django import forms
-from .models import MarkedDownExample
 
 
-class MarkedDownExampleForm(forms.ModelForm):
+class MarkdownForm(forms.ModelForm):
     class Meta:
-        model = MarkedDownExample
+        model = Markdown
         fields = '__all__'
+
+    # TODO: remove single bullet point validation error message
+    def clean(self):
+        title = self.cleaned_data.get('title')
+
+        if util.search_entries(title) is not None:
+            raise forms.ValidationError({'title': 'Entry already exists.'})

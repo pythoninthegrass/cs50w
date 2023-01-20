@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 import os
 from django.core.asgi import get_asgi_application
 

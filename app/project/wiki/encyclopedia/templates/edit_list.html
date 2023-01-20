@@ -1,16 +1,16 @@
 {% extends "layout.html" %}
 
 {% block title %}
-  Create New Page
+  Edit List
 {% endblock %}
 
 {% block body %}
   <div class="container">
-    <form method="POST" action="">{% csrf_token %}
-      {{ form.as_p|safe }}
-      {{ form.media }}
-    <input class="create" type="submit" name="create" placeholder="Submit">
-    </form>
+    <ul>
+      {% for entry in entries %}
+        <li><a href="{% url 'edit' entry %}">{{ entry }}</a></li>
+      {% endfor %}
+    </ul>
   </div>
   <style>
     pre {

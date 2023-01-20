@@ -1,6 +1,4 @@
-#!/usr/bin/env python3
-
-# import os
+import os
 from django.core.files.storage import default_storage
 from pathlib import Path
 
@@ -30,9 +28,10 @@ TEMP_PATH = Path(f"{default_storage.location}/encyclopedia/templates").as_posix(
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "%710m*zic)#0u((qugw#1@e^ty!c)9j04956v@ly(_86n$rg)h"
 
-# TODO: `DEBUG = False`; `ALLOWED_HOSTS = ['*']` for production
+# TODO: `DEBUG = False`
 DEBUG = True
 ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 APPEND_SLASH = False
 
 
@@ -127,15 +126,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_URL = "/static/"
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_TMP = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
-STATICFILES_DIRS = [MDX_PATH, STAT_PATH]
-
-MEDIA_URL = "/media/"
-
-MEDIA_ROOT = Path(BASE_DIR / "media")
-
-MARKDOWNX_IMAGE_MAX_SIZE = {
-    'size': (1000, 1000),
-    'quality': 100
-}
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+os.makedirs(STATIC_TMP, exist_ok=True)
+os.makedirs(STATIC_ROOT, exist_ok=True)
+os.makedirs(MEDIA_ROOT, exist_ok=True)

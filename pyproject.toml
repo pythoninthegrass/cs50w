@@ -8,10 +8,10 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "3.10.8"
 Django = "^4.1.3"
-markdown2 = "^2.4.6"
 sanic = "^22.9.1"
 python-decouple = "^3.6"
-django-markdownx = "^3.0.1"
+django-markdownx = ">=4.0.0b1"
+markdownify = "^0.11.6"
 
 [tool.poetry.dev-dependencies]
 icecream = "^2.1.3"

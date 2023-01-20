@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+
 
 import markdown2
 import re
@@ -42,10 +42,10 @@ def save_entry(title, content):
     it is replaced.
     """
 
-    filename = f"entries/{title}.md"
-    if default_storage.exists(filename):
-        default_storage.delete(filename)
-    default_storage.save(filename, ContentFile(content))
+    filename = f"{title}.md"
+    if Path(f"{filepath}/{filename}").exists():
+        Path(f"{filepath}/{filename}").unlink()
+    Path(f"{filepath}/{filename}").write_text(content)
 
 
 def get_entry(title):
