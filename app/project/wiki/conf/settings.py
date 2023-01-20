@@ -18,8 +18,9 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # /Users/lance/git/cs50w/app/project/wiki/encyclopedia/static/styles.css
-STAT_PATH = Path(f"{default_storage.location}/app/project/wiki/encyclopedia/static")
-TEMP_PATH = Path(f"{default_storage.location}/app/project/wiki/encyclopedia/templates")
+MDX_PATH =  Path(f"{default_storage.location}/encyclopedia/markdownx").as_posix()
+STAT_PATH = Path(f"{default_storage.location}/encyclopedia/static").as_posix()
+TEMP_PATH = Path(f"{default_storage.location}/encyclopedia/templates").as_posix()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
