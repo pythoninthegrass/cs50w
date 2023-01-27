@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block body %}
+  <h1>Edit List</h1>
   <div class="container">
     <ul>
       {% for entry in entries %}
@@ -12,23 +13,5 @@
       {% endfor %}
     </ul>
   </div>
-  <style>
-    pre {
-       background: #2e2f2f;
-       border-radius: 5px;
-       padding: 10px;
-       }
-    img{
-        width: 1000px;
-        padding: 10px;
-       }
-    .markdownx {
-      display: flex;
-    }
-    .markdownx-editor {
-      width: 50%;
-      padding: 10px;
-    }
-  </style>
   <a href="/">Back</a>
 {% endblock %}

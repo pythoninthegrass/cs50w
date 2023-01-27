@@ -3,23 +3,51 @@ body {
   background-color: white;
 }
 
+dl, ol, ul {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
 code {
   white-space: pre;
 }
 
 h1 {
   margin-top: 0px;
-  padding-top: 20px;
+  padding-top: 10px;
   padding-left: 0%;
 }
-
 textarea {
-  height: 90vh;
+  height: 60vh;
   width: 80%;
+}
+
+pre {
+  background: #2e2f2f;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+img{
+  width: 1000px;
+  padding: 10px;
 }
 
 .main {
   padding: 10px;
+}
+
+.markdownx {
+  display: flex;
+}
+
+.markdownx-editor {
+  width: 50%;
+}
+
+.markdownx-preview {
+  width: 50%;
+  margin-left: 15px;
 }
 
 .search {
