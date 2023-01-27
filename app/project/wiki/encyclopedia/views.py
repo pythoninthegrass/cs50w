@@ -1,6 +1,7 @@
 import random
 from . import util
 from .forms import MarkdownForm
+from django.core.exceptions import ValidationError
 from django.core.files.storage import default_storage
 from django.shortcuts import render, redirect
 from django.urls import reverse
@@ -57,7 +58,7 @@ def get_entries(request):
         )
 
 
-# TODO: error page when title already exists
+# TODO: error page when title already exists (`util.save_entry()`)
 def create(request):
     if request.method == "POST":
         form = MarkdownForm(request.POST)
@@ -65,15 +66,21 @@ def create(request):
             title = form.cleaned_data["title"]
             body = f"# {title}\n\n" + form.cleaned_data["body"]
 
-            util.save_entry(
-                title, body
-            )
-            return redirect(
-                reverse(
-                    "entry",
-                    args=(form.cleaned_data["title"],)
+            try:
+                util.save_entry(
+                    title, body
                 )
-            )
+                return redirect(
+                    reverse(
+                        "entry",
+                        args=(form.cleaned_data["title"],)
+                    )
+                )
+            except ValidationError:
+                # TODO: render messages.html as defined in settings.py MESSAGE_TAGS
+                # messages.error(request, 'Invalid form submission.')
+                # messages.error(request, form.errors)
+                pass
     else:
         form = MarkdownForm()
 

@@ -2,8 +2,9 @@
 
 import markdown2
 import re
-from django.core.files.base import ContentFile
-from django.core.files.storage import default_storage
+from django.core.exceptions import ValidationError
+# from django.core.files.base import ContentFile
+from django.core.files.storage import default_storage, Storage
 from django.http import Http404, HttpResponse
 from icecream import ic
 from pathlib import Path
@@ -43,9 +44,10 @@ def save_entry(title, content):
     """
 
     filename = f"{title}.md"
-    if Path(f"{filepath}/{filename}").exists():
-        Path(f"{filepath}/{filename}").unlink()
-    Path(f"{filepath}/{filename}").write_text(content)
+    if default_storage.exists(f"{filepath}/{filename}"):
+        raise ValidationError("Entry already exists.")
+    else:
+        Path(f"{filepath}/{filename}").write_text(content)
 
 
 def get_entry(title):
