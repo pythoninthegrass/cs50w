@@ -33,6 +33,10 @@ img{
   padding: 10px;
 }
 
+.container {
+    margin-left: 0;
+}
+
 .main {
   padding: 10px;
 }
@@ -60,6 +64,7 @@ img{
   background-color: #f0f0f0;
   height: 100vh;
   padding: 20px;
+  max-width: fit-content;
 }
 
 .sidebar h2 {
