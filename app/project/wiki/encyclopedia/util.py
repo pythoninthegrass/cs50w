@@ -44,10 +44,7 @@ def save_entry(title, content):
     """
 
     filename = f"{title}.md"
-    if default_storage.exists(f"{filepath}/{filename}"):
-        raise ValidationError("Entry already exists.")
-    else:
-        Path(f"{filepath}/{filename}").write_text(content)
+    Path(f"{filepath}/{filename}").write_text(content)
 
 
 def get_entry(title):

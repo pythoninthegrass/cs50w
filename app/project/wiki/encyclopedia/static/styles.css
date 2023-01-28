@@ -3,7 +3,7 @@ body {
   background-color: white;
 }
 
-dl, ol, ul {
+dl, ol {
   margin-top: 0;
   margin-bottom: 1rem;
 }

@@ -1,6 +1,6 @@
 import random
 from . import util
-from .forms import MarkdownForm
+from .forms import MarkdownForm, MarkdownEditForm
 from django.core.exceptions import ValidationError
 from django.core.files.storage import default_storage
 from django.shortcuts import render, redirect
@@ -66,21 +66,15 @@ def create(request):
             title = form.cleaned_data["title"]
             body = f"# {title}\n\n" + form.cleaned_data["body"]
 
-            try:
-                util.save_entry(
-                    title, body
+            util.save_entry(
+                title, body
+            )
+            return redirect(
+                reverse(
+                    "entry",
+                    args=(form.cleaned_data["title"],)
                 )
-                return redirect(
-                    reverse(
-                        "entry",
-                        args=(form.cleaned_data["title"],)
-                    )
-                )
-            except ValidationError:
-                # TODO: render messages.html as defined in settings.py MESSAGE_TAGS
-                # messages.error(request, 'Invalid form submission.')
-                # messages.error(request, form.errors)
-                pass
+            )
     else:
         form = MarkdownForm()
 
@@ -93,7 +87,7 @@ def create(request):
 
 def edit(request, title):
     if request.method == "POST":
-        form = MarkdownForm(request.POST)
+        form = MarkdownEditForm(request.POST)
         if form.is_valid():
             util.save_entry(
                 form.cleaned_data["title"], form.cleaned_data["body"]
@@ -105,7 +99,7 @@ def edit(request, title):
                 )
             )
     else:
-        form = MarkdownForm()
+        form = MarkdownEditForm()
         form.fields["title"].initial = title
         raw = form.fields["body"].initial = util.get_entry(title)
         form.fields["body"].initial = md(raw)

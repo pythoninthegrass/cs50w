@@ -1,5 +1,4 @@
 import os
-from django.contrib.messages import constants as messages
 from django.core.files.storage import default_storage
 from pathlib import Path
 
@@ -139,11 +138,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 os.makedirs(STATIC_TMP, exist_ok=True)
 os.makedirs(STATIC_ROOT, exist_ok=True)
 os.makedirs(MEDIA_ROOT, exist_ok=True)
-
-MESSAGE_TAGS = {
-    messages.DEBUG: 'alert-secondary',
-    messages.INFO: 'alert-info',
-    messages.SUCCESS: 'alert-success',
-    messages.WARNING: 'alert-warning',
-    messages.ERROR: 'alert-danger',
-}
