@@ -3,12 +3,13 @@ django/composeexample/
 django/data/
 django/manage.py
 migrations/
-entries/
+entries/*
 !entries/CSS.md
 !entries/Django.md
 !entries/Git.md
 !entries/HTML.md
 !entries/Python.md
+!entries/Code_Gang.md
 *.sqlite
 redis*
 !redis.conf.example
