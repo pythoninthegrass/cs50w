@@ -9,6 +9,7 @@ entries/
 !entries/Git.md
 !entries/HTML.md
 !entries/Python.md
+!entries/Code_Gang.md
 *.sqlite
 redis*
 !redis.conf.example

@@ -76,20 +76,12 @@ def search_entries(query):
     entry exists, the function returns None.
     """
 
-    acro_list = ["html", "css"]
-    if query in acro_list:
-        query = query.upper()
-    else:
-        query = query.capitalize()
-
     # get list of entries
-    entries, url = list_entries()
+    entries, urls = list_entries()
+    normalized_entries = [entry.lower().strip() for entry in entries]
 
-    # convert entries to hyperlinks
-    urls = [f"<a href='/wiki/{entry}'>{entry}</a>" for entry in entries]
-
-    if query in entries:
-        url = [url for url in urls if query in url]
-        return query, url
-    else:
+    try:
+        index = normalized_entries.index(query.lower())
+        return entries[index], urls[index]
+    except ValueError:
         return None
