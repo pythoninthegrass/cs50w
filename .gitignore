@@ -3,7 +3,7 @@ django/composeexample/
 django/data/
 django/manage.py
 migrations/
-entries/*
+entries/
 !entries/CSS.md
 !entries/Django.md
 !entries/Git.md
