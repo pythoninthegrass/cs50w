@@ -6,8 +6,8 @@
 
 {% block body %}
   <h1>Search Results</h1>
-  <p>No results for "{{ query }}".</p>
-  <p><b>Available pages</b>:</p>
+  <p>No exact results for "{{ query }}".</p>
+  {% comment %} <p><b>Available pages</b>:</p> {% endcomment %}
   <ul>
     {% for entry in entries %}
       <li>
