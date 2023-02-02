@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block body %}
-  {% comment %} <h1>{{ title }}</h1> {% endcomment %}
   {{ content|safe }}
+  <a href="{% url 'edit' title %}">Edit {{ title }}</a><br>
   <a href="/">Back</a>
 {% endblock %}
