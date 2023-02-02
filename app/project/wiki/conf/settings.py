@@ -28,8 +28,7 @@ TEMP_PATH = Path(f"{default_storage.location}/encyclopedia/templates").as_posix(
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "%710m*zic)#0u((qugw#1@e^ty!c)9j04956v@ly(_86n$rg)h"
 
-# TODO: `DEBUG = False`
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = []
 ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 APPEND_SLASH = False
