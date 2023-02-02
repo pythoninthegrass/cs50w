@@ -39,18 +39,20 @@ def random_entry(request):
     return entry(request, title)
 
 
-# TODO: handle bare except
 def get_entries(request):
     query = request.GET["q"]
 
     try:
         entries, urls = util.search_entries(query)
         return entry(request, query)
-    except:
+    except TypeError:
         # raw list of entries/urls
         entries, urls = util.list_entries()
-        # TODO: only return entries that match query (title or content)
 
+        # look for partial match in entries
+        entries = [entry for entry in entries if query.lower() in entry.lower()]
+
+        # TODO: dynamic `search.html` based on `entries` length (javascript?)
         return render(
             request,
             f"{filepath}/search.html",
@@ -58,7 +60,6 @@ def get_entries(request):
         )
 
 
-# TODO: error page when title already exists (`util.save_entry()`)
 def create(request):
     if request.method == "POST":
         form = MarkdownForm(request.POST)
