@@ -26,7 +26,7 @@
             "name": "Python: Django",
             "type": "python",
             "request": "launch",
-            "program": "${workspaceFolder}/app/project/wiki/manage.py",
+            "program": "${workspaceFolder}/app/project/commerce/manage.py",
             "console": "integratedTerminal",
             "args": ["runserver"],
             "django": true,
