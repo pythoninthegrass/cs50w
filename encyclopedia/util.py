@@ -12,7 +12,7 @@ from pathlib import Path
 # verbose icecream
 ic.configureOutput(includeContext=True)
 
-filepath = Path(f"{default_storage.location}/app/project/wiki/encyclopedia/entries")
+filepath = Path(f"{default_storage.location}/encyclopedia/entries")
 
 
 def list_entries():

@@ -17,7 +17,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-TEMP_PATH = Path(f"{default_storage.location}/wiki/encyclopedia/templates").as_posix()
+TEMP_PATH = Path(f"{default_storage.location}/encyclopedia/templates").as_posix()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/

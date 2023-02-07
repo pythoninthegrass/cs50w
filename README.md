@@ -1,128 +1,36 @@
 # CS50 Web Programming with Python and JavaScript
 
+## Project 1
+### Spec
+Complete the implementation of your Wiki encyclopedia. You must fulfill the following requirements:
+* Entry Page: Visiting /wiki/TITLE, where TITLE is the title of an encyclopedia entry, should render a page that displays the contents of that encyclopedia entry.
+    * The view should get the content of the encyclopedia entry by calling the appropriate util function.
+    * If an entry is requested that does not exist, the user should be presented with an error page indicating that their requested page was not found.
+    * If the entry does exist, the user should be presented with a page that displays the content of the entry. The title of the page should include the name of the entry.
+* Index Page: Update index.html such that, instead of merely listing the names of all pages in the encyclopedia, user can click on any entry name to be taken directly to that entry page.
+* Search: Allow the user to type a query into the search box in the sidebar to search for an encyclopedia entry.
+    * If the query matches the name of an encyclopedia entry, the user should be redirected to that entry’s page.
+    * If the query does not match the name of an encyclopedia entry, the user should instead be taken to a search results page that displays a list of all encyclopedia entries that have the query as a substring. For example, if the search query were ytho, then Python should appear in the search results.
+    * Clicking on any of the entry names on the search results page should take the user to that entry’s page.
+* New Page: Clicking “Create New Page” in the sidebar should take the user to a page where they can create a new encyclopedia entry.
+    * Users should be able to enter a title for the page and, in a textarea, should be able to enter the Markdown content for the page.
+    * Users should be able to click a button to save their new page.
+    * When the page is saved, if an encyclopedia entry already exists with the provided title, the user should be presented with an error message.
+    * Otherwise, the encyclopedia entry should be saved to disk, and the user should be taken to the new entry’s page.
+* Edit Page: On each entry page, the user should be able to click a link to be taken to a page where the user can edit that entry’s Markdown content in a textarea.
+    * The textarea should be pre-populated with the existing Markdown content of the page. (i.e., the existing content should be the initial value of the textarea).
+    * The user should be able to click a button to save the changes made to the entry.
+    * Once the entry is saved, the user should be redirected back to that entry’s page.
+* Random Page: Clicking “Random Page” in the sidebar should take user to a random encyclopedia entry.
+* Markdown to HTML Conversion: On each entry’s page, any Markdown content in the entry file should be converted to HTML before being displayed to the user. You may use the python-markdown2 package to perform this conversion, installable via pip3 install markdown2.
+    * Challenge for those more comfortable: If you’re feeling more comfortable, try implementing the Markdown to HTML conversion without using any external libraries, supporting headings, boldface text, unordered lists, links, and paragraphs. You may find using regular expressions in Python helpful.
 
-## Summary
-From the [course authors](https://cs50.harvard.edu/web/2020/):
-> This course picks up where CS50x leaves off, diving more deeply into the design and implementation of web apps with Python, JavaScript, and SQL using frameworks like Django, React, and Bootstrap. Topics include database design, scalability, security, and user experience. Through hands-on projects, students learn to write and use APIs, create interactive UIs, and leverage cloud services like GitHub and Heroku. By semester’s end, students emerge with knowledge and experience in principles, languages, and tools that empower them to design and deploy applications on the Internet.
+### Hints
+* By default, when substituting a value in a Django template, Django HTML-escapes the value to avoid outputting unintended HTML. If you want to allow for an HTML string to be outputted, you can do so with the safe filter (as by adding |safe after the variable name you’re substituting).
 
-**Table of Contents**
-* [CS50 Web Programming with Python and JavaScript](#cs50-web-programming-with-python-and-javascript)
-  * [Summary](#summary)
-  * [Setup](#setup)
-  * [Usage](#usage)
-  * [Submissions](#submissions)
-  * [TODO](#todo)
-  * [Further Reading](#further-reading)
+### How to Submit
+* Using Git, push your work to https://github.com/me50/USERNAME.git, where USERNAME is your GitHub username, on a branch called `web50/projects/2020/x/wiki`.
+* Record a screencast not to exceed 5 minutes in length, in which you demonstrate your project’s functionality. Your URL bar must remain visible throughout your demonstration of the project. Be certain that every element of the specification, above, is demonstrated in your video. There’s no need to show your code in this video, just your application in action; we’ll review your code on GitHub. Upload that video to YouTube (as unlisted or public, but not private) or somewhere else. In your video’s description, you must timestamp where your video demonstrates each of the seven (7) elements of the specification. This is not optional, videos without timestamps in their description will be automatically rejected.
+* Submit [this form](https://forms.cs50.io/fef4af19-c3c3-4902-878c-154f25d650a5).
 
-## Setup
-* Install
-    * [editorconfig](https://editorconfig.org/)
-    * [asdf](https://asdf-vm.com/guide/getting-started.html#_2-download-asdf)
-    * [poetry](https://python-poetry.org/docs/)
-    * [docker-compose](https://docs.docker.com/compose/install/)
-    * [k9s](https://github.com/derailed/k9s#installation)
-    * [minikube](#kubernetes-k8s)
-    * [helm](https://helm.sh/docs/intro/install/)
-    * [devspace](https://devspace.sh/docs/getting-started/introduction)
-
-## Usage
-* [k9s](markdown/kubernetes.md#k9s)
-* Minikube
-    ```bash
-    # install
-    brew install minikube
-
-    # set cluster driver permanently
-    minikube config set driver docker
-
-    # options
-    minikube start --memory=2048 --cpus=2 -p minikube
-
-    # profile list
-    minikube profile list
-    ```
-* [DevSpace](https://loft.sh/blog/python-django-development-on-kubernetes-with-devspace/)
-    ```bash
-    # install devspace
-    brew install devspace
-
-    # upgrade
-    devspace upgrade
-
-    # select context (cluster)
-    devspace use context minikube
-
-    # wizard
-    λ cd app/project/0
-    λ devspace init
-
-        %########%
-        %###########%       ____                 _____
-            %#########%    |  _ \   ___ __   __ / ___/  ____    ____   ____ ___
-            %#########%    | | | | / _ \\ \ / / \___ \ |  _ \  / _  | / __// _ \
-        %#############%    | |_| |(  __/ \ V /  ____) )| |_) )( (_| |( (__(  __/
-        %#############%    |____/  \___|  \_/   \____/ |  __/  \__,_| \___\\___|
-    %###############%                                  |_|
-    %###########%
-
-    ? Docker Compose configuration detected. Do you want to create a DevSpace configuration based on Docker Compose? Create a new devspace.yaml from scratch
-
-    info Detecting programming language...
-
-    ? Select the programming language of this project python
-    ? How do you want to deploy this project?
-    ? Do you already have a Helm chart for this project?
-    ? Do you want to develop this project with DevSpace or just deploy it?  [Use arrows to move, type to filter] I want to develop this project and my current working dir contains the source code
-    ? How should DevSpace build the container image for this project? Use this existing Dockerfile: ./Dockerfile
-    ? If you were to push any images, which container registry would you want to push to? Skip Registry
-    ? Which port is your application listening on? (Enter to skip) 8000
-
-    done Project successfully initialized
-    info Configuration saved in devspace.yaml - you can make adjustments as needed
-
-    # change namespace from default
-    devspace use namespace cs50w
-
-    # list variables in devspace.yaml
-    devspace list vars
-
-    # run pod
-    devspace dev
-
-    # delete deployed resources
-    devspace purge
-    ```
-    ![devspace](img/devspace.png)
-    ![ellie](img/simplehttp.gif)
-
-## Submissions
-* See [CS50W Projects](https://cs50.harvard.edu/web/2020/projects/) for details
-    ```bash
-    # create branch from spec (e.g., project 0: search)
-    git checkout -b web50/projects/2020/x/search
-
-    # add remote origin
-    git remote add origin https://github.com/me50/USERNAME.git
-
-    # move all relevant files to tld
-    mv index.html image.html advanced.html styles.css ../../..
-
-    # commit files
-    git commit .
-
-    # commit files and skip pre-commit
-    git commit -m "search mvp" -m "Other than .dotfiles, just the project 0 website content" --no-verify
-
-    # push to me50 repo
-    git push -u origin https://github.com/me50/USERNAME.git
-    ```
-
-## TODO
-* ~~Switch out DevSpace default image in `devspace.yaml`~~
-* ~~Refactor [advanced.html](app/project/0/advanced.html) to match [Google Advanced Search](https://www.google.com/advanced_search)~~
-* Go over [sanic](https://sanic.dev/en/) as ad hoc stand-in for stdlib http server
-
-## Further Reading
-[CS50's Web Programming with Python and JavaScript | edX](https://www.edx.org/course/cs50s-web-programming-with-python-and-javascript)
-
-[Config Reference | DevSpace | Documentation](https://www.devspace.sh/docs/configuration/reference)
+You can then go to https://cs50.me/cs50w to view your current progress!

@@ -8,7 +8,7 @@ from django.urls import reverse
 from markdownify import markdownify as md
 from pathlib import Path
 
-filepath = Path(f"{default_storage.location}/app/project/wiki/encyclopedia/templates")
+filepath = Path(f"{default_storage.location}/encyclopedia/templates")
 
 
 def index(request):
