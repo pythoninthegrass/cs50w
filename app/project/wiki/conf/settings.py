@@ -17,10 +17,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# /Users/lance/git/cs50w/app/project/wiki/encyclopedia/static/styles.css
-MDX_PATH =  Path(f"{default_storage.location}/encyclopedia/markdownx").as_posix()
-STAT_PATH = Path(f"{default_storage.location}/encyclopedia/static").as_posix()
-TEMP_PATH = Path(f"{default_storage.location}/encyclopedia/templates").as_posix()
+TEMP_PATH = Path(f"{default_storage.location}/wiki/encyclopedia/templates").as_posix()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -125,15 +122,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_TMP = os.path.join(BASE_DIR, 'static')
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
+STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, 'static/markdownx/js'),
+# )
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-os.makedirs(STATIC_TMP, exist_ok=True)
-os.makedirs(STATIC_ROOT, exist_ok=True)
-os.makedirs(MEDIA_ROOT, exist_ok=True)
