@@ -13,6 +13,7 @@ python-decouple = "^3.6"
 django-markdownx = ">=4.0.0b1"
 markdownify = "^0.11.6"
 markdown2 = "^2.4.7"
+django-bootstrap-v5 = "^1.0.11"
 
 [tool.poetry.dev-dependencies]
 icecream = "^2.1.3"

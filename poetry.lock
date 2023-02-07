@@ -96,6 +96,21 @@ argon2 = ["argon2-cffi (>=19.1.0)"]
 bcrypt = ["bcrypt"]
 
 [[package]]
+name = "django-bootstrap-v5"
+version = "1.0.11"
+description = "Bootstrap 5 support for Django projects"
+category = "main"
+optional = false
+python-versions = ">=3.6,<4.0"
+
+[package.dependencies]
+beautifulsoup4 = ">=4.8.0,<5.0.0"
+django = ">=2.2,<5.0"
+
+[package.extras]
+docs = ["m2r2 (>=0.2.5,<0.3.0)", "sphinx (>=4.4,<5.0)", "sphinx_rtd_theme (>=1.0,<2.0)"]
+
+[[package]]
 name = "django-markdownx"
 version = "4.0.0b1"
 description = "A comprehensive Markdown editor built for Django."
@@ -519,7 +534,7 @@ python-versions = ">=3.7"
 [metadata]
 lock-version = "1.1"
 python-versions = "3.10.9"
-content-hash = "e613a5bd781d2d1901ae7fa4b111ed73bc89c9e89f18297e0db287b9f1135a5e"
+content-hash = "479250987546b0d025b540863eeec7ba569d6a08e6931e70fbe07d72e063b3b7"
 
 [metadata.files]
 aiofiles = [
@@ -557,6 +572,10 @@ decorator = [
 django = [
     {file = "Django-4.1.6-py3-none-any.whl", hash = "sha256:c6fe7ebe7c017fe59f1029821dae0acb5a2ddcd6c9a0138fd20a8bfefac914bc"},
     {file = "Django-4.1.6.tar.gz", hash = "sha256:bceb0fe1a386781af0788cae4108622756cd05e7775448deec04a71ddf87685d"},
+]
+django-bootstrap-v5 = [
+    {file = "django-bootstrap-v5-1.0.11.tar.gz", hash = "sha256:2d431308859ce3cab7729bb09c76039059cd5fbdd34484da82c4c7f8d49da3a2"},
+    {file = "django_bootstrap_v5-1.0.11-py3-none-any.whl", hash = "sha256:a207aa804938164c8450bbbef4faaba6d2093b3236000557a50f3bd44b53d268"},
 ]
 django-markdownx = [
     {file = "django-markdownx-4.0.0b1.tar.gz", hash = "sha256:4f0ee12c38a9aeab9f8da0588ca169ec32c4dad84fc90dc4e9f56481b5de3473"},
