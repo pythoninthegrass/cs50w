@@ -10,9 +10,9 @@ entries/
 !entries/HTML.md
 !entries/Python.md
 !entries/Code Gang.md
-static/
-!static/styles.css
 staticfiles/
+static/
+!styles.css
 *.sqlite
 redis*
 !redis.conf.example
