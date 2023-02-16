@@ -63,6 +63,14 @@ def register(request):
         return render(request, "auctions/register.html")
 
 
+def categories(request):
+    return render(request, "auctions/categories.html")
+
+
+def watchlist(request):
+    return render(request, "auctions/watchlist.html")
+
+
 def create_listing(request):
     # TODO: debug `or None` showing form errors before anything has been submitted
     form = CreateListingForm(request.POST or None)
