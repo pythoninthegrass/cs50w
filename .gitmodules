@@ -1,0 +1,9 @@
+[submodule "app/commerce"]
+	path = app/commerce
+	url = https://github.com/pythoninthegrass/commerce.git
+[submodule "app/search"]
+	path = app/search
+	url = https://github.com/pythoninthegrass/search.git
+[submodule "app/wiki"]
+	path = app/wiki
+	url = https://github.com/pythoninthegrass/wiki.git
