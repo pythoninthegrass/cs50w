@@ -1,6 +1,15 @@
-name: Dependabot reviewer
+# https://docs.github.com/en/code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions#approve-a-pull-request
+# https://nicolasiensen.github.io/2022-07-23-automating-dependency-updates-with-dependabot-github-auto-merge-and-github-actions/
 
-on: pull_request_target
+name: auto_merge
+
+on: # pull_request, pull_request_target, push, workflow_dispatch
+  pull_request:
+  pull_request_target:
+  workflow_dispatch:
+  push:
+  release:
+    types: [published]
 
 permissions:
   pull-requests: write
