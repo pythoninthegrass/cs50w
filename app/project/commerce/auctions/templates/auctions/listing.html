@@ -1,0 +1,26 @@
+{% extends "auctions/layout.html" %}
+{% load bootstrap5 %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1>{{ listing.title }}</h1>
+      <img src="{{ listing.image.url }}" alt="{{ listing.title }}" class="img-fluid">
+      <p>{{ listing.description }}</p>
+      <p>Current bid: {{ listing.current_bid }}</p>
+      <p>Details:</p>
+      <ul>
+        <li>Posted by: {{ listing.user }}</li>
+        <li>Category: {{ listing.category }}</li>
+      </ul>
+      <p>Posted on: {{ listing.date }}</p>
+      <p>Expires on: {{ listing.expires }}</p>
+      <p>Active: {{ listing.active }}</p>
+      <p>Watched by: {{ listing.watched_by }}</p>
+      <p>Number of bids: {{ listing.num_bids }}</p>
+      <p>Number of watchers: {{ listing.num_watchers }}</p>
+    </div>
+  </div>
+</div>
+{% endblock %}
