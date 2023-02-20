@@ -37,6 +37,22 @@ docker-compose := if `command -v docker-compose; echo $?` == "0" {
 default:
     just --list
 
+# [deps]     Update dependencies
+update-deps:
+    #!/usr/bin/env bash
+    # set -euxo pipefail
+    find . -maxdepth 3 -name "pyproject.toml" -exec \
+        echo "[{}]" \; -exec \
+        poetry update --no-ansi --lock \;
+
+# [deps]     Export requirements.txt
+export-reqs: update-deps
+    #!/usr/bin/env bash
+    # set -euxo pipefail
+    find . -maxdepth 3 -name "pyproject.toml" -exec \
+        echo "[{}]" \; -exec \
+        poetry export --no-ansi --without-hashes --output requirements.txt \;
+
 # [git]      update git submodules
 sub:
     git submodule update --init --recursive && git pull --recurse-submodules
