@@ -43,6 +43,8 @@ update-deps:
     # set -euxo pipefail
     find . -maxdepth 3 -name "pyproject.toml" -exec \
         echo "[{}]" \; -exec \
+        echo "Clearring pypi cache..." \; -exec \
+        poetry cache clear --all pypi --no-ansi \; -exec \
         poetry update --no-ansi --lock \;
 
 # [deps]     Export requirements.txt
@@ -51,6 +53,7 @@ export-reqs: update-deps
     # set -euxo pipefail
     find . -maxdepth 3 -name "pyproject.toml" -exec \
         echo "[{}]" \; -exec \
+        echo "Exporting requirements.txt..." \; -exec \
         poetry export --no-ansi --without-hashes --output requirements.txt \;
 
 # [git]      update git submodules
