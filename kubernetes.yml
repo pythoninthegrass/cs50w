@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cs50w
+  labels:
+    app: cs50w
+spec:
+  selector:
+    matchLabels:
+      app: cs50w
+  template:
+    metadata:
+      labels:
+        app: cs50w
+    spec:
+      containers:
+        - name: cs50w
+          image: cs50w-image
+          ports:
+            - containerPort: 8000

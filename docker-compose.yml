@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  cs50w:
+    container_name: cs50w
+    image: python:3.10.9-slim-bullseye
+    # tty: false               # false for `entrypoint` in Dockerfile
+    # stdin_open: false        # false for `entrypoint` in Dockerfile
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    volumes:
+    - .:/app
+    ports:
+    - ${PORT:-8000}:8000
