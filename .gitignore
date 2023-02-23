@@ -2,6 +2,17 @@
 django/composeexample/
 django/data/
 django/manage.py
+migrations/
+entries/
+!entries/CSS.md
+!entries/Django.md
+!entries/Git.md
+!entries/HTML.md
+!entries/Python.md
+!entries/Code Gang.md
+staticfiles/
+static/
+!static/styles.css
 *.sqlite
 redis*
 !redis.conf.example
@@ -9,6 +20,9 @@ redis*
 *.key
 raw/
 gitleaks_report*.json
+_pginfo/
+_pgbackup/
+pinegrow.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

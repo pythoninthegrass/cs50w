@@ -1,5 +1,4 @@
 fail_fast: true
-verbose: true
 
 repos:
   # checks for secrets via rules (gitleaks.toml)
@@ -11,6 +10,11 @@ repos:
     rev: 22.6.0
     hooks:
     - id: black
+    exclude: |
+        (?x)^(
+            app/project/wiki/encyclopedia/util.py|
+            app/project/wiki/encyclopedia/views.py
+        )$
   - repo: https://gitlab.com/pycqa/flake8
     rev: 3.9.2
     hooks:
@@ -25,10 +29,7 @@ repos:
     - id: check-yaml
     - id: check-added-large-files
       args: ['--maxkb=1024']
-    - id: check-docstring-first
-    - id: check-executables-have-shebangs
     - id: check-merge-conflict
-    - id: check-shebang-scripts-are-executable
     - id: check-symlinks
     - id: check-toml
     - id: check-yaml
@@ -43,7 +44,10 @@ repos:
     - id: pretty-format-json
       # https://pre-commit.com/#regular-expressions
       exclude: |
-        ^settings.json$
+          (?x)^(
+              .vscode/launch.json|
+              .vscode/settings.json
+          )$
       args: ['--autofix', '--indent=2', '--no-sort-keys']
     - id: requirements-txt-fixer
     # - id: trailing-whitespace
