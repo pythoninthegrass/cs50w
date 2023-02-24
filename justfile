@@ -59,6 +59,7 @@ export-reqs: update-deps
 # [git]      update git submodules
 sub:
     git submodule update --init --recursive && git pull --recurse-submodules
+    git switch main
 
 # [minikube] start minikube + tilt
 start-minikube:
