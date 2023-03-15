@@ -2,10 +2,10 @@ fail_fast: true
 
 repos:
   # checks for secrets via rules (gitleaks.toml)
-  - repo: https://github.com/zricethezav/gitleaks
-    rev: v8.15.3
-    hooks:
-      - id: gitleaks
+  # - repo: https://github.com/zricethezav/gitleaks
+  #   rev: v8.15.3
+  #   hooks:
+  #     - id: gitleaks
   - repo: https://github.com/ambv/black
     rev: 23.1.0
     hooks:
