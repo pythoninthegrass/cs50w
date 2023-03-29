@@ -10,6 +10,7 @@ From the [course authors](https://cs50.harvard.edu/web/2020/):
   * [Summary](#summary)
   * [Setup](#setup)
   * [Usage](#usage)
+  * [Troubleshooting](#troubleshooting)
   * [Submissions](#submissions)
   * [TODO](#todo)
   * [Further Reading](#further-reading)
@@ -41,59 +42,18 @@ From the [course authors](https://cs50.harvard.edu/web/2020/):
     # profile list
     minikube profile list
     ```
-* [DevSpace](https://loft.sh/blog/python-django-development-on-kubernetes-with-devspace/)
+
+## Troubleshooting
+* `no such table: auctions_listing`
     ```bash
-    # install devspace
-    brew install devspace
-
-    # upgrade
-    devspace upgrade
-
-    # select context (cluster)
-    devspace use context minikube
-
-    # wizard
-    λ cd app/project/0
-    λ devspace init
-
-        %########%
-        %###########%       ____                 _____
-            %#########%    |  _ \   ___ __   __ / ___/  ____    ____   ____ ___
-            %#########%    | | | | / _ \\ \ / / \___ \ |  _ \  / _  | / __// _ \
-        %#############%    | |_| |(  __/ \ V /  ____) )| |_) )( (_| |( (__(  __/
-        %#############%    |____/  \___|  \_/   \____/ |  __/  \__,_| \___\\___|
-    %###############%                                  |_|
-    %###########%
-
-    ? Docker Compose configuration detected. Do you want to create a DevSpace configuration based on Docker Compose? Create a new devspace.yaml from scratch
-
-    info Detecting programming language...
-
-    ? Select the programming language of this project python
-    ? How do you want to deploy this project?
-    ? Do you already have a Helm chart for this project?
-    ? Do you want to develop this project with DevSpace or just deploy it?  [Use arrows to move, type to filter] I want to develop this project and my current working dir contains the source code
-    ? How should DevSpace build the container image for this project? Use this existing Dockerfile: ./Dockerfile
-    ? If you were to push any images, which container registry would you want to push to? Skip Registry
-    ? Which port is your application listening on? (Enter to skip) 8000
-
-    done Project successfully initialized
-    info Configuration saved in devspace.yaml - you can make adjustments as needed
-
-    # change namespace from default
-    devspace use namespace cs50w
-
-    # list variables in devspace.yaml
-    devspace list vars
-
-    # run pod
-    devspace dev
-
-    # delete deployed resources
-    devspace purge
+    find . -path "*/migrations/*.py" -not -name "__init__.py" -delete
+    find . -path "*/migrations/*.pyc" -delete
+    rm db.sqlite3
+    python manage.py makemigrations
+    python manage.py migrate
+    python manage.py migrate --run-syncdb
     ```
-    ![devspace](img/devspace.png)
-    ![ellie](img/simplehttp.gif)
+    [python - "no such table" exception - Stack Overflow](https://stackoverflow.com/a/58362169)
 
 ## Submissions
 * See [CS50W Projects](https://cs50.harvard.edu/web/2020/projects/) for details
