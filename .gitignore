@@ -1,6 +1,5 @@
 # ETC
-django/composeexample/
-django/data/
+!**/auctions/static/
 django/manage.py
 migrations/
 entries/

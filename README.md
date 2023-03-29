@@ -39,6 +39,9 @@ From the [course authors](https://cs50.harvard.edu/web/2020/):
 
     # setup admin
     python manage.py createsuperuser
+
+    # deploy static files
+    python manage.py collectstatic
     ```
 * [k9s](markdown/kubernetes.md#k9s)
 * Minikube
