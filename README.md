@@ -27,6 +27,19 @@ From the [course authors](https://cs50.harvard.edu/web/2020/):
     * [devspace](https://devspace.sh/docs/getting-started/introduction)
 
 ## Usage
+* Quickstart
+    ```bash
+    # dependencies
+    asdf install python 3.10.9
+    asdf install poetry latest
+
+    # env
+    poetry install
+    poetry shell
+
+    # setup admin
+    python manage.py createsuperuser
+    ```
 * [k9s](markdown/kubernetes.md#k9s)
 * Minikube
     ```bash
