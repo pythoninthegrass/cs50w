@@ -138,7 +138,7 @@ push: login
 
 # [docker]   pull latest image
 pull: login
-	docker pull {{IMAGE}}/{{APP}}
+	docker pull {{IMAGE}}
 
 # [docker]   run container
 run: build
