@@ -1,5 +1,4 @@
 # ETC
-!**/auctions/static/
 django/manage.py
 entries/
 !entries/CSS.md
@@ -9,7 +8,9 @@ entries/
 !entries/Python.md
 !entries/Code Gang.md
 staticfiles/
-static/
+static/*
+!static/gbv.jpg
+!static/zelda.jpg
 !static/styles.css
 *.sqlite
 redis*
