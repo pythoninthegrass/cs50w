@@ -1,7 +1,6 @@
 # ETC
 !**/auctions/static/
 django/manage.py
-migrations/
 entries/
 !entries/CSS.md
 !entries/Django.md
